@@ -29,10 +29,8 @@ public class StoryDto {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public LocalDateTime getDateTime() {
-		return dateTime;
-	}
-	public void setDateTime(LocalDateTime dateTime) {
+	public LocalDateTime getLocalDateTime() {return dateTime;}
+	public void setLocalDateTime(LocalDateTime dateTime) {
 		this.dateTime = dateTime;
 	}
 	public byte getType() {

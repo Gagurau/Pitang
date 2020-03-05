@@ -37,10 +37,10 @@ public class MessageDto {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public LocalDateTime getDateTime() {
+	public LocalDateTime getLocalDateTime() {
 		return dateTime;
 	}
-	public void setDateTime(LocalDateTime dateTime) {
+	public void setLocalDateTime(LocalDateTime dateTime) {
 		this.dateTime = dateTime;
 	}
 	public byte getStatusSrc() {

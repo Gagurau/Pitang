@@ -1,5 +1,6 @@
 package com.pitang.sms.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -27,7 +28,7 @@ public class StoryModel {
 	
 	@NotNull
 	@Column (name = "post_date")
-	private Date dateTime;
+	private LocalDateTime dateTime;
 	
 	@NotNull
 	@Column (name="type")
@@ -41,12 +42,12 @@ public class StoryModel {
 		this.id = id;
 	}
 
-	public Long getIdOwner() {
+	public Long getIdSrc() {
 		return idSrc;
 	}
 
-	public void setIdOwner(Long idOwner) {
-		this.idSrc = idOwner;
+	public void setIdSrc(Long idSrc) {
+		this.idSrc = idSrc;
 	}
 
 	public String getMessage() {
@@ -57,11 +58,11 @@ public class StoryModel {
 		this.message = message;
 	}
 
-	public Date getDateTime() {
+	public LocalDateTime getLocalDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(Date dateTime) {
+	public void setLocalDateTime(LocalDateTime dateTime) {
 		this.dateTime = dateTime;
 	}
 

@@ -1,5 +1,6 @@
 package com.pitang.sms.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ public class MessageModel {
 	
 	@NotNull
 	@Column(name="date")
-	private Date datetime;
+	private LocalDateTime datetime;
 	
 	@NotNull
 	@Column(name = "message")
@@ -65,11 +66,11 @@ public class MessageModel {
 		this.idDst = idDst;
 	}
 
-	public Date getDatetime() {
+	public LocalDateTime getLocalDatetime() {
 		return datetime;
 	}
 
-	public void setDatetime(Date datetime) {
+	public void setLocalDatetime(LocalDateTime datetime) {
 		this.datetime = datetime;
 	}
 

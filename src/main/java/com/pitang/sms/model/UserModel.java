@@ -82,15 +82,6 @@ public class UserModel {
 			cascade = CascadeType.ALL,
 			mappedBy = "user")
 	private List <MessageModel> messageDst;
-	
-	public UserModel() {
-		
-	}
-	
-	public UserModel (String email, String password) {
-		this.email = email;
-		this.password = password;
-	}
 
 	public long getId() {
 		return id;
@@ -186,5 +177,29 @@ public class UserModel {
 
 	public void setMessageDst(List<MessageModel> messageDst) {
 		this.messageDst = messageDst;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<ContactModel> getContactSrc() {
+		return contactSrc;
+	}
+
+	public void setContactSrc(List<ContactModel> contactSrc) {
+		this.contactSrc = contactSrc;
+	}
+
+	public List<ContactModel> getContactDst() {
+		return contactDst;
+	}
+
+	public void setContactDst(List<ContactModel> contactDst) {
+		this.contactDst = contactDst;
 	}
 }

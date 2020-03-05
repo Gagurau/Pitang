@@ -19,11 +19,14 @@ public class UserDto {
 	private List <ContactModel>contactsSrc;
 	private List <ContactModel> contactsDst;
 	private StoryModel story;
+	private Boolean status;
 	private ProfileModel profile;
 	private List <MessageModel> messageDst;
 	private List <MessageModel> messageSrc;
 	private List <HistoryPasswordModel> historyPassword;
 
+	public Boolean getStatus() {return this.status;}
+	public void setStatus(Boolean status) {this.status = status;}
 	public long getId() {
 		return id;
 	}
