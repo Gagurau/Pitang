@@ -1,11 +1,6 @@
 package com.pitang.sms.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -15,13 +10,43 @@ public class ContactModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@OneToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "user_src_id", nullable = false)
+	private UserModel userSrc;
+
+	@OneToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "user_dst_id", nullable = false)
+	private UserModel userDst;
+	
+	@Column(name = "nick")
+	private String nick;
+
 	@NotNull
 	@Column(name = "id_src")
 	private Long idSrc;
-	
+
 	@NotNull
 	@Column(name = "id_target")
 	private Long idDst;
+
+	public ContactModel(){
+		super();
+	}
+	public UserModel getUserSrc() {
+		return userSrc;
+	}
+
+	public void setUserSrc(UserModel userSrc) {
+		this.userSrc = userSrc;
+	}
+
+	public UserModel getUserDst() {
+		return userDst;
+	}
+
+	public void setUserDst(UserModel userDst) {
+		this.userDst = userDst;
+	}
 
 	public Long getId() {
 		return id;
@@ -46,4 +71,8 @@ public class ContactModel {
 	public void setIdTarget(Long idTarget) {
 		this.idDst = idTarget;
 	}
+
+	public String getNick() { return nick;	}
+
+	public void setNick(String nick) {this.nick = nick;	}
 }

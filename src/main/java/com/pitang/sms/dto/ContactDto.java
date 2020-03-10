@@ -7,6 +7,8 @@ public class ContactDto {
 	private Long id;
 	private Long idOwner;
 	private Long idTarget;
+	private String nick;
+
 	public Long getId() {
 		return id;
 	}
@@ -25,5 +27,7 @@ public class ContactDto {
 	public void setIdTarget(Long idTarget) {
 		this.idTarget = idTarget;
 	}
-	
+	public String getNick() {return nick;}
+	public void setNick(String nick) {this.nick = nick;
+	}
 }

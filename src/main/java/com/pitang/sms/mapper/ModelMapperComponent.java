@@ -28,7 +28,6 @@ public class ModelMapperComponent {
 						map().setEmail(source.getEmail());
 						map().setPassword(null);
 						when(Conditions.isNotNull()).using(ModelConverter.convertStatus).map(source.isStatus()).setStatus(null);
-						map().setContactsSrc(source.getContactSrc());
 						map().setContactsDst(source.getContactDst());
 
 					}
@@ -137,6 +136,7 @@ public class ModelMapperComponent {
 					@Override
 					protected void configure(){
 						map().setId(source.getId());
+						map().setNick(source.getNick());
 						map().setIdOwner(source.getIdOwner());
 						map().setIdTarget(source.getIdTarget());
 					}
@@ -148,6 +148,7 @@ public class ModelMapperComponent {
 					@Override
 					protected void configure(){
 						map().setId(source.getId());
+						map().setNick(source.getNick());
 						map().setIdOwner(source.getIdOwner());
 						map().setIdTarget(source.getIdTarget());
 					}

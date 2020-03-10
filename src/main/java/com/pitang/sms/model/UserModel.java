@@ -49,38 +49,31 @@ public class UserModel {
 	private boolean status;
 	
 	@OneToMany(fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			mappedBy = "user")
+			cascade = CascadeType.ALL)
 	private List<HistoryPasswordModel> historyPassword;
 	
 	@OneToMany(fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			mappedBy = "user")
+			cascade = CascadeType.ALL)
 	private List<ContactModel> contactSrc;
 	
 	@OneToMany(fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			mappedBy = "user")
+			cascade = CascadeType.ALL)
 	private List<ContactModel> contactDst;
 	
 	@OneToMany(fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			mappedBy = "user")
+			cascade = CascadeType.ALL)
 	private List<StoryModel> story;
 	
 	@OneToOne (fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			mappedBy = "user")
+			cascade = CascadeType.ALL)
 	private ProfileModel profile;
 	
 	@OneToMany (fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			mappedBy = "user")
+			cascade = CascadeType.ALL)
 	private List <MessageModel> messageSrc;
 	
 	@OneToMany (fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			mappedBy = "user")
+			cascade = CascadeType.ALL)
 	private List <MessageModel> messageDst;
 
 	public long getId() {

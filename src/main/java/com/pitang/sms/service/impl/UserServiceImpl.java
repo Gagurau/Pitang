@@ -10,7 +10,6 @@ import org.springframework.util.StringUtils;
 import com.pitang.sms.exceptions.ExceptionBadRequest;
 import com.pitang.sms.exceptions.ExceptionConflict;
 import com.pitang.sms.model.UserModel;
-import com.pitang.sms.repository.UserProfileRepository;
 import com.pitang.sms.repository.UserRepository;
 import com.pitang.sms.service.UserService;
 
@@ -19,9 +18,6 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private UserRepository userRepository;
-	
-	@Autowired
-	private UserProfileRepository userProfileRepository;
 	
 	@Override
 	public List<UserModel> listUsers() {
@@ -70,13 +66,6 @@ public class UserServiceImpl implements UserService{
 				e.printStackTrace();
 			}
 		}
-		if(StringUtils.isEmpty(user.getFirstName())) {
-			try {
-				throw new ExceptionBadRequest("Necessário informar o Primeiro Nome do usuário.");
-			} catch (ExceptionBadRequest e) {
-				e.printStackTrace();
-			}
-		}
 		if(StringUtils.isEmpty(user.getPassword())) {
 			try {
 				throw new ExceptionBadRequest("Necessário informar a Senha do usuário.");
@@ -109,19 +98,6 @@ public class UserServiceImpl implements UserService{
 			}
 		}
 	}
-	
-/*	private void checkRelations(UserModel user) {
-		if(user.getUserProfile() != null && 
-				userProfileRepository.findById(user.getUserProfile().getId()) == null) {
-			try {
-				throw new ExceptionBadRequest("Perfil do usuário não encontrado.");
-			} catch (ExceptionBadRequest e) {
-				e.printStackTrace();
-			}
-		}else if(user.getUserProfile() != null) {
-			user.setUserProfile(null);
-		}
-	} */
 
 	@Override
 	public void deleteUser(Long id) {
@@ -130,10 +106,4 @@ public class UserServiceImpl implements UserService{
 			userRepository.deleteById(id);
 		}
 	}
-
-	@Override
-	public void deleteUser(long id) {
-		
-	}
-
 }
