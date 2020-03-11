@@ -23,12 +23,15 @@ public class ModelMapperComponent {
 					@Override
 					protected void configure() {
 						map().setId(source.getId());
+						map().setEmail(source.getEmail());
 						map().setName(source.getName());
 						map().setUserName(source.getUserName());
-						map().setEmail(source.getEmail());
 						map().setPassword(null);
-						when(Conditions.isNotNull()).using(ModelConverter.convertStatus).map(source.isStatus()).setStatus(null);
-						map().setContactsDst(source.getContactDst());
+						skip().setContactsDst(null);
+		//				skip().setContactsSrc(null);
+						skip().setMessageDst(null);
+						skip().setContactsSrc(null);
+						skip().setStory(null);
 
 					}
 				});
@@ -38,11 +41,15 @@ public class ModelMapperComponent {
 					@Override
 					protected void configure() {
 						map().setId(source.getId());
+						map().setEmail(source.getEmail());
 						map().setName(source.getName());
 						map().setUserName(source.getUserName());
-						map().setPassword(source.getPassword());
-						map().setEmail(source.getEmail());
-						when(Conditions.isNotNull()).using(ModelConverter.convertStatusToBoolean).map(source.getStatus()).setStatus(false);
+						map().setPassword(null);
+						skip().setContactDst(null);
+						skip().setContactSrc(null);
+						skip().setMessageDst(null);
+						skip().setMessageSrc(null);
+						skip().setStory(null);
 
 					}
 				});

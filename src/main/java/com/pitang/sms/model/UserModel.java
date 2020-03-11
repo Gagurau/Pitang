@@ -43,11 +43,7 @@ public class UserModel {
 	@Size (max = 128)
 	@Column(name = "password")
 	private String password;
-	
-	@NotNull
-	@Column(name = "status")
-	private boolean status;
-	
+
 	@OneToMany(fetch = FetchType.LAZY,
 			cascade = CascadeType.ALL)
 	private List<HistoryPasswordModel> historyPassword;
@@ -76,7 +72,7 @@ public class UserModel {
 			cascade = CascadeType.ALL)
 	private List <MessageModel> messageDst;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -108,36 +104,12 @@ public class UserModel {
 		this.password = password;
 	}
 
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
 	public List <HistoryPasswordModel> getHistoryPassword() {
 		return historyPassword;
 	}
 
 	public void setHistoryPassword(List<HistoryPasswordModel>historyPassword) {
 		this.historyPassword = historyPassword;
-	}
-
-	public List <ContactModel> getContactTargets() {
-		return contactSrc;
-	}
-
-	public void setContactTargets(List <ContactModel> contactTargets) {
-		this.contactSrc = contactTargets;
-	}
-
-	public List<ContactModel> getContactOwners() {
-		return contactDst;
-	}
-
-	public void setContactOwners(List<ContactModel> contactOwners) {
-		this.contactDst = contactOwners;
 	}
 
 	public List<StoryModel> getStory() {

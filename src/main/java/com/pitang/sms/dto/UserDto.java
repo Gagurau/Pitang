@@ -16,17 +16,14 @@ public class UserDto {
 	private String userName;
 	private String email;
 	private String Password;
-	private List <ContactModel>contactsSrc;
-	private List <ContactModel> contactsDst;
-	private StoryModel story;
-	private Boolean status;
-	private ProfileModel profile;
-	private List <MessageModel> messageDst;
-	private List <MessageModel> messageSrc;
-	private List <HistoryPasswordModel> historyPassword;
+	private List <ContactDto>contactsSrc;
+	private List <ContactDto> contactsDst;
+	private StoryDto story;
+	private ProfileDto profile;
+	private List <MessageDto> messageDst;
+	private List <MessageDto> messageSrc;
+	private List <HistoryPasswordDto> historyPassword;
 
-	public Boolean getStatus() {return this.status;}
-	public void setStatus(Boolean status) {this.status = status;}
 	public long getId() {
 		return id;
 	}
@@ -57,48 +54,48 @@ public class UserDto {
 	public void setPassword(String password) {
 		Password = password;
 	}
-	public List<ContactModel> getContactsSrc() {
+	public List<ContactDto> getContactsSrc() {
 		return contactsSrc;
 	}
-	public void setContactsSrc(List<ContactModel> contactsSrc) {
+	public void setContactsSrc(List<ContactDto> contactsSrc) {
 		this.contactsSrc = contactsSrc;
 	}
-	public List<ContactModel> getContactsDst() {
+	public List<ContactDto> getContactsDst() {
 		return contactsDst;
 	}
-	public void setContactsDst(List<ContactModel> contactsDst) {
+	public void setContactsDst(List<ContactDto> contactsDst) {
 		this.contactsDst = contactsDst;
 	}
-	public StoryModel getStory() {
+	public StoryDto getStory() {
 		return story;
 	}
-	public void setStory(StoryModel story) {
+	public void setStory(StoryDto story) {
 		this.story = story;
 	}
-	public ProfileModel getProfile() {
+	public ProfileDto getProfile() {
 		return profile;
 	}
-	public void setProfile(ProfileModel profile) {
+	public void setProfile(ProfileDto profile) {
 		this.profile = profile;
 	}
-	public List<MessageModel> getMessageDst() {
+	public List<MessageDto> getMessageDst() {
 		return messageDst;
 	}
-	public void setMessageDst(List<MessageModel> messageDst) {
+	public void setMessageDst(List<MessageDto> messageDst) {
 		this.messageDst = messageDst;
 	}
-	public List<MessageModel> getMessageSrc() {
+	public List<MessageDto> getMessageSrc() {
 		return messageSrc;
 	}
-	public void setMessageSrc(List<MessageModel> messageSrc) {
+	public void setMessageSrc(List<MessageDto> messageSrc) {
 		this.messageSrc = messageSrc;
 	}
-	public List<HistoryPasswordModel> getHistoryPassword() {
+	public List<HistoryPasswordDto> getHistoryPassword() {
 		return historyPassword;
 	}
-	public void setHistoryPassword(List<HistoryPasswordModel> historyPassword) {
+	public void setHistoryPassword(List<HistoryPasswordDto> historyPassword) {
 		this.historyPassword = historyPassword;
 	}
-	
-		
+
+
 }

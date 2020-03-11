@@ -2,18 +2,20 @@ package com.pitang.sms.service;
 
 import java.util.List;
 
+import com.pitang.sms.exceptions.ExceptionBadRequest;
+import com.pitang.sms.exceptions.ExceptionConflict;
 import com.pitang.sms.model.UserModel;
 
 public interface UserService {
 	
-	public List<UserModel> listUsers();
+	List<UserModel> listUsers();
 	
-	public UserModel findUserByUsername(String username);
+	UserModel findUserByUsername(String username);
 	
-	public UserModel addUser (UserModel user);
+	UserModel addUser (UserModel user) throws ExceptionConflict;
 	
-	public UserModel updateUser (UserModel user);
+	UserModel updateUser (UserModel user) throws ExceptionConflict;
 
-	public void deleteUser(Long id);
+	void deleteUser(Long id) throws ExceptionBadRequest;
 
 }

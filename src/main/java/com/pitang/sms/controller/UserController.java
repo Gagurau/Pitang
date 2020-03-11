@@ -1,7 +1,9 @@
 package com.pitang.sms.controller;
 
-import java.util.List;
 
+
+import com.pitang.sms.exceptions.ExceptionBadRequest;
+import com.pitang.sms.exceptions.ExceptionConflict;
 import org.modelmapper.TypeToken;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,9 @@ import com.pitang.sms.mapper.ModelMapperComponent;
 import com.pitang.sms.model.UserModel;
 import com.pitang.sms.service.UserService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class UserController {
 	private UserService userService;
@@ -30,6 +35,7 @@ public class UserController {
 	public String hwu() {
 		return "hello world! user!";
 	}
+
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<UserDto>> listUsers(){
@@ -39,8 +45,8 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		List<UserDto> usersDto = ModelMapperComponent.modelMapper.map(users, new TypeToken<List<UserDto>>() {}.getType());
-		
+		List<UserDto> usersDto =(ModelMapperComponent.modelMapper.map(users, new TypeToken<List<UserDto>>() {}.getType()));
+
 		ModelMapperComponent.modelMapper.validate();
 		
 		return new ResponseEntity<>(usersDto,HttpStatus.OK);
@@ -48,7 +54,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<UserDto> addUsers(@RequestBody UserDto userDto){
+	public ResponseEntity<UserDto> addUsers(@RequestBody UserDto userDto) throws ExceptionConflict {
 		
 		if(userDto == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -67,7 +73,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
 	@ResponseBody
-	public ResponseEntity<UserDto> updateUsers(@PathVariable("id") Long id, @RequestBody UserDto userDto){
+	public ResponseEntity<UserDto> updateUsers(@PathVariable("id") Long id, @RequestBody UserDto userDto) throws ExceptionConflict {
 		
 		
 		UserModel userModel = ModelMapperComponent.modelMapper.map(userDto, new TypeToken<UserModel>() {}.getType());
@@ -83,7 +89,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
 	@ResponseBody
-	public ResponseEntity<UserDto> removeUser(@PathVariable("id") Long id){
+	public ResponseEntity<UserDto> removeUser(@PathVariable("id") Long id) throws ExceptionBadRequest {
 		
 		userService.deleteUser(id);
 		
